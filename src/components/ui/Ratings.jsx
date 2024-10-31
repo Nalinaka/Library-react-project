@@ -13,3 +13,13 @@ const Ratings = ({ rating }) => {
 };
 
 export default Ratings;
+
+
+{/* <div className="book__ratings">
+{
+    new Array(Math.floor(book.rating)).fill(0).map((_, index) => <FontAwesomeIcon icon="star" key={index} />)
+  }
+  {
+    !Number.isIinteger(book.rating) && <FontAwesomeIcon icon="star-half-alt" key={index} />
+  } 
+</div> */}

@@ -18,3 +18,4 @@ const Price = ({ salePrice, originalPrice }) => {
 };
 
 export default Price;
+

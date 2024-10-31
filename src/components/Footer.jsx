@@ -24,7 +24,7 @@ const Footer = () => {
               Cart
             </Link>
           </div>
-          <div className="footer__copyright">Copyright &copy; 2021 Library</div>
+          <div className="footer__copyright">Copyright &copy; 2022 Library</div>
         </div>
       </div>
     </footer>

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Highlight from "./ui/Highlight";
 
 const Highlights = () => {
-  return (
+  return (  
     <section id="highlights">
       <div className="container">
         <div className="row">

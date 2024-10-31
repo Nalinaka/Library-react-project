@@ -4,7 +4,7 @@ import BestBooks from "./ui/BestBooks";
 import { books } from "../data";
 
 const Featured = () => {
-  return (
+  return (  
     <section id="features">
       <div className="container">
         <div className="row">
