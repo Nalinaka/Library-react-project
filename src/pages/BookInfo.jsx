@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router";
 import Ratings from "../components/ui/Ratings";
 import Price from "../components/ui/Price";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import BestBooks from "../components/ui/BestBooks";
+import Book from "../components/ui/Book";
 
-const BookInfo = ({ books, addItemToCart }) => {
+// Adding the + converts the string to a number, or you can
+// use parseFloat, but the "+"" is easiest, remember the
+// '===' compares values but also types!
+const BookInfo = ({ books, addToCart, cart }) => {
   const { id } = useParams();
   const book = books.find((book) => +book.id === +id);
+  const [added, setAdded] = useState(false);
+
+  function addBookToCart(book) {
+    // setAdded(true);
+    addToCart(book);
+  }
+
+  function bookExistsOnCart() {
+    return cart.find(book => book.id=== +id);
+  }
 
   return (
     <div id="books__body">
@@ -52,25 +66,42 @@ const BookInfo = ({ books, addItemToCart }) => {
                     neque provident alias iure nihil explicabo nobis id
                     voluptas.
                   </p>
-                </div>
-                <button className="btn" onClick={() => addItemToCart(book)}>
+              {/* This is passing in the book that is selected and then 
+                shows up in addcart, it also shows if book is in cart, then
+                check out, if it isn't add it to the cart.  */}
+                  </div>
+                  { bookExistsOnCart() ? (
+                  <Link to={`/cart`} className="book__link">
+                  <button className="btn">Checkout</button>
+                  </Link>
+                ) : (
+                <button className="btn" onClick={() => addBookToCart(book)}>
                   Add to Cart
                 </button>
+                )}
+              </div>
               </div>
             </div>
           </div>
-        </div>
         <div className="books__container">
           <div className="row">
             <div className="book__selected--top">
               <h2 className="book__selected--title--top">Recommended Books</h2>
             </div>
+            <div className="books">
+            {books
+              .filter((book) => book.rating === 5 && +book.id !== +id)
+              .slice(0,4)
+              .map((book) => (
+                <Book book={book} key={book.id} />
+              ))}
             <BestBooks id={id} />
+          </div>
           </div>
         </div>
       </main>
-    </div>
-  );
+      </div>
+);
 };
 
 export default BookInfo;

@@ -1,7 +1,5 @@
 import React from "react";
-import Book from ".ui/Book";
 import BestBooks from "./ui/BestBooks";
-import { books } from "../data";
 
 const Featured = () => {
   return (  

@@ -1,5 +1,6 @@
 import React from "react";
 import UndrawBooks from "../assets/Undraw_Books.svg";
+// import UndrawBooks from ".../assets/Undraw_Books.svg";
 
 const Landing = () => {
   return (

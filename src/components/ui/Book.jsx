@@ -1,8 +1,8 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Price from "./Price";
-import Rating from "./Rating";
+import Rating from "./Ratings.jsx";
 
 const Book = ({ book }) => {
   const [img, setImg] = useState(null);
